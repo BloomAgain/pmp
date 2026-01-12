@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout | Bloom Again in Menopause</title>
+  <meta name="description" content="Checkout and intake form for Perimenopause: How to Thrive, Not Survive." />
+
+  <style>
+    :root{
+      /* Your brand colors */
+      --orchid:#F09038;   /* Orchid Orange */
+      --sunny:#F8E820;    /* Sunny Yellow */
+      --lime:#A0F000;     /* Lime Glow */
+
+      --coral:#F88050;    /* Warm Coral */
+      --gold:#F8C830;     /* Golden */
+      --yg:#D8F010;       /* Yellow-Green */
+
+      --bg0:#F8F0E8;      /* premium off-white */
+      --card:#FFFFFF;
+
+      --ink:#111111;
+      --muted:rgba(17,17,17,.72);
+      --stroke:rgba(17,17,17,.10);
+
+      --radius:18px;
+      --shadow: 0 18px 40px rgba(17,17,17,.10);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 18% 0%,
+          rgba(248,232,32,.34) 0%, transparent 62%),
+        radial-gradient(950px 560px at 92% 8%,
+          rgba(160,240,0,.22) 0%, transparent 60%),
+        radial-gradient(820px 520px at 60% 18%,
+          rgba(240,144,56,.18) 0%, transparent 58%),
+        linear-gradient(180deg, var(--bg0) 0%, #fff 45%, var(--bg0) 100%);
+    }
+
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px 18px}
+
+    /* Header */
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;
+      padding:14px 16px;
+      background:rgba(255,255,255,.62);
+      border:1px solid var(--stroke);
+      border-radius:22px;
+      box-shadow: 0 10px 30px rgba(17,17,17,.06);
+      backdrop-filter: blur(8px);
+    }
+
+    .brand{display:flex;align-items:center;gap:14px;min-width:0}
+    .logo{
+      width:96px;height:96px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(240,144,56,.28);
+      box-shadow: 0 12px 26px rgba(240,144,56,.16);
+      display:grid;place-items:center;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .logo img{width:92%;height:92%;object-fit:contain;display:block}
+
+    .brandtext{min-width:0}
+    .brandtext .name{
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size:18px;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brandtext .tag{
+      margin-top:4px;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.25;
+    }
+
+    .link{
+      text-decoration:none;
+      font-weight:900;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(17,17,17,.12);
+      background:rgba(255,255,255,.7);
+      display:inline-flex;align-items:center;gap:10px;
+      transition:transform .12s ease, background .12s ease;
+    }
+    .link:hover{transform:translateY(-1px); background:rgba(255,255,255,.9)}
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      background:
+        radial-gradient(800px 420px at 15% 15%, rgba(248,200,48,.22), transparent 55%),
+        radial-gradient(900px 520px at 85% 0%, rgba(160,240,0,.16), transparent 58%),
+        linear-gradient(180deg, rgba(255,255,255,.78) 0%, rgba(255,255,255,.58) 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .heroInner{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      padding:26px;
+      align-items:center;
+    }
+
+    .kicker{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:7px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.74);
+      border:1px solid rgba(240,144,56,.22);
+      font-size:13px;
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height:1.05;
+      letter-spacing:-.7px;
+    }
+    .sub{margin:0 0 8px;color:var(--muted);line-height:1.55}
+    .note{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+
+    .card{
+      background:rgba(255,255,255,.80);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 28px rgba(17,17,17,.06);
+    }
+
+    .photoCard{padding:12px}
+    .photo{
+      width:100%;
+      aspect-ratio: 4/5;
+      border-radius:18px;
+      overflow:hidden;
+      background:#eee;
+    }
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    section{padding:22px 0}
+    .grid2{display:grid;grid-template-columns: 1fr 1fr;gap:18px}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      border-radius: 16px;
+      padding:14px 16px;
+      font-weight:1000;
+      border:1px solid transparent;
+      transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+      cursor:pointer;
+      width:100%;
+    }
+    .btn:hover{transform:translateY(-1px); filter:saturate(1.05)}
+    .btn:active{transform:translateY(0px)}
+
+    .btn-paypal{
+      background: linear-gradient(135deg, var(--orchid) 0%, var(--coral) 45%, var(--gold) 90%, var(--sunny) 130%);
+      color:#111;
+      box-shadow: 0 16px 28px rgba(240,144,56,.22);
+      border:1px solid rgba(255,255,255,.35);
+    }
+    .btn-etransfer{
+      background: linear-gradient(135deg, rgba(160,240,0,.55) 0%, rgba(248,232,32,.55) 55%, rgba(240,144,56,.35) 120%);
+      color:#111;
+      border:1px solid rgba(17,17,17,.10);
+      box-shadow: 0 14px 22px rgba(160,240,0,.12);
+    }
+    .btn-outline{
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(17,17,17,.14);
+      color:#111;
+    }
+
+    /* Form */
+    .formWrap{padding:18px}
+    .fields{display:grid; gap:12px; margin-top:12px}
+    label{font-size:12.5px;color:var(--muted);font-weight:900}
+    input{
+      width:100%;
+      padding:14px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(17,17,17,.16);
+      background:rgba(255,255,255,.88);
+      outline:none;
+      font-size:15px;
+    }
+    input:focus{
+      border-color: rgba(240,144,56,.45);
+      box-shadow: 0 0 0 4px rgba(248,200,48,.22);
+    }
+
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .help{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px dashed rgba(17,17,17,.20);
+      background: rgba(255,255,255,.75);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .success{
+      display:none;
+      margin-top:12px;
+      padding:14px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(160,240,0,.30);
+      background: rgba(160,240,0,.12);
+      color:#111;
+      font-weight:800;
+      line-height:1.4;
+    }
+
+    footer{
+      padding:26px 0 18px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    @media (max-width: 920px){
+      .heroInner{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">
+          <img src="assets/logo.png" alt="Bloom Again in Menopause logo">
+        </div>
+        <div class="brandtext">
+          <div class="name">Bloom Again in Menopause</div>
+          <div class="tag">Holistic Peri/Menopause Coaching with Svetlana</div>
+        </div>
+      </div>
+
+      <a class="link" href="index.html" title="Back to the program page">← Back to program page</a>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="heroInner">
+        <div>
+          <div class="kicker">Checkout & Intake Form</div>
+          <h1>Complete your enrollment</h1>
+          <p class="sub">
+            Please fill out the intake form first. Then choose your payment method:
+            <strong>PayPal</strong> or <strong>Interac e-Transfer</strong> (Canada).
+          </p>
+          <p class="note">
+            Your intake details can be sent to <strong>coach@we-bloom-again.com</strong> after you submit (static-page friendly).
+          </p>
+        </div>
+
+        <div class="card photoCard">
+          <div class="photo">
+            <!-- optional: add assets/sveta.jpg -->
+            <img src="assets/sveta.jpg" alt="Svetlana (optional)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="grid2">
+
+        <!-- Intake Form -->
+        <div class="card formWrap">
+          <h2 style="margin:0 0 6px; letter-spacing:-.2px;">Intake form</h2>
+          <p style="margin:0; color:var(--muted); line-height:1.5;">
+            This helps me contact you and support you properly inside the program.
+          </p>
+
+          <form id="intakeForm" class="fields" autocomplete="on">
+            <div>
+              <label for="fullname">Name and last name</label>
+              <input id="fullname" name="fullname" type="text" placeholder="Your full name" required />
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="you@email.com" required />
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="+1 (___) ___-____" required />
+              </div>
+            </div>
+
+            <button class="btn btn-outline" type="submit">Submit intake form</button>
+
+            <div id="successBox" class="success">
+              ✅ Intake form saved on this page. Next step: choose your payment method.
+              <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn btn-outline" type="button" id="copyBtn">Copy my details</button>
+                <a class="btn btn-outline" href="#" id="emailBtn">Email my details to coach@we-bloom-again.com</a>
+              </div>
+            </div>
+
+            <div class="help">
+              <strong>Note:</strong> This is a static page. Your info won’t be stored on a server automatically unless we connect Google Sheets.
+              For now, use <strong>“Email my details”</strong> (recommended) or <strong>copy</strong> and send it manually.
+            </div>
+          </form>
+        </div>
+
+        <!-- Payment -->
+        <div class="card formWrap">
+          <h2 style="margin:0 0 6px; letter-spacing:-.2px;">Payment</h2>
+          <p style="margin:0 0 12px; color:var(--muted); line-height:1.5;">
+            Choose one payment method:
+          </p>
+
+          <!-- ✅ PayPal link CONNECTED -->
+          <a class="btn btn-paypal" href="https://paypal.me/coachbloomagain/397" target="_blank" rel="noopener">
+            <span aria-hidden="true">🅿️</span> PayPal — $397
+          </a>
+
+          <p style="margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.5;">
+            PayPal amount is set to <strong>$397</strong> (your program price).
+          </p>
+
+          <!-- e-transfer button -->
+          <a class="btn btn-etransfer" href="mailto:coach@we-bloom-again.com?subject=Interac%20e-Transfer%20Payment%20-%20Perimenopause%20Program">
+            <span aria-hidden="true">🇨🇦</span> e-transfer to coach@we-bloom-again.com
+          </a>
+
+          <div class="help" style="margin-top:12px;">
+            <strong>For Canadians (Interac e-Transfer):</strong><br/>
+            Send your e-transfer to <strong>coach@we-bloom-again.com</strong>.<br/>
+            In the message, include: <em>Your full name + the program name</em>.
+          </div>
+
+          <div style="margin-top:12px;">
+            <a class="btn btn-outline" href="index.html">← Back to program page</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div style="opacity:.9">
+        Disclaimer: This page is for program enrollment and communication only. It does not provide medical advice.
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // STATIC PAGE FORM HANDLING:
+    // - show success box
+    // - build mailto with the entered details
+    // - copy details to clipboard
+
+    const form = document.getElementById('intakeForm');
+    const successBox = document.getElementById('successBox');
+    const emailBtn = document.getElementById('emailBtn');
+    const copyBtn = document.getElementById('copyBtn');
+
+    function getDetails(){
+      const full = document.getElementById('fullname').value.trim();
+      const em = document.getElementById('email').value.trim();
+      const ph = document.getElementById('phone').value.trim();
+
+      const lines = [
+        'Intake Form - Bloom Again in Menopause',
+        'Program: Perimenopause: How to Thrive, Not Survive',
+        '------------------------------------------',
+        'Name: ' + full,
+        'Email: ' + em,
+        'Phone: ' + ph
+      ];
+      return lines.join('\n');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const body = encodeURIComponent(getDetails());
+      const subject = encodeURIComponent('Intake Form - Perimenopause Program');
+      emailBtn.href = `mailto:coach@we-bloom-again.com?subject=${subject}&body=${body}`;
+
+      successBox.style.display = 'block';
+      successBox.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(getDetails());
+        copyBtn.textContent = 'Copied ✅';
+        setTimeout(()=> copyBtn.textContent = 'Copy my details', 1800);
+      }catch(err){
+        alert('Copy failed. Please use the Email button or copy manually.');
+      }
+    });
+  </script>
+</body>
+</html>
